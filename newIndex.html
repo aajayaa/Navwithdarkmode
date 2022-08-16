@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navigation bar with darkmode toggle</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background-color: grey;
+        }
+        nav{
+            background-color: rgba(0, 0, 0, 0.3);
+            width: 50px;
+            height: 300px;
+            margin: 150px 0px;
+
+        }
+        ul li {
+            list-style: none;
+        }
+        ul li a img{
+            width: 20px;
+            filter: invert(100%);
+            margin: 25px 15px;
+
+        }
+        ul li a{
+            transition: 1s;
+        }
+        ul li a:hover{
+            filter: invert(100%);
+        }
+        /* .toggle{
+            background-color: red;
+        } */
+        .darkmode{
+            background-color: black;
+            color: white;
+        }
+        #toggle-container{
+            width: 150px;
+            background-color: white;
+            border: 2px solid black;
+            height: 50px;
+            border-radius: 100px;
+        }
+        #toggle-btn{
+            background-color: black;
+            width: 60px;
+            height: 40px;
+            border-radius: 100px;
+           position: relative;
+           top: 6px;
+           left: 4px;
+           cursor: pointer;
+         
+
+        }
+        .animation{
+            transform: translateX(80px);
+            
+            
+        }
+        .darkmode-btn{
+            background-color: white;
+            
+        }
+        
+    
+
+    
+        
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="#"><img src="house-solid.svg" ></a></li>
+            <li><a href="#"><img src="bell-solid.svg" ></a></li>
+            <li><a href="#"><img src="comment-solid.svg" ></a></li>
+            <li><a href="#"><img src="bars-solid.svg" ></a></li>
+            
+        </ul>
+    </nav>
+    <div id="toggle-container">
+        <div id="toggle-btn" onclick="darkMode()">
+
+        </div>
+
+    </div>
+    
+    <script>
+        
+        function darkMode(){
+            var btn = document.getElementById("toggle-btn");
+            var btnBg = document.getElementById("toggle-container");
+            document.body.classList.toggle("darkmode");
+            btn.classList.toggle("animation");
+            // if (btn.style.backgroundColor="black"){
+            //     btn.style.backgroundColor="white";
+            // }
+            // else{
+            //     btn.style.backgroundColor="black";
+            // }
+            // if(btnBg.style.backgroundColor="white"){
+            //     btnBg.style.backgroundColor="black";
+            //     btnBg.style.border="2px solid white";
+            // }
+            // else{
+            //     btnBg.style.backgroundColor="white";
+            // }
+            if(btn.classList.toggle("darkmode-btn")){
+                btn.style.backgroundColor="white";
+                btnBg.style.backgroundColor = "black"
+                btnBg.style.border = "2px solid white"
+                
+            }
+            else {
+                btn.style.backgroundColor="black";
+                btnBg.style.backgroundColor = "white";
+                btnBg.style.border = "2px solid black";
+            }
+            // btn.classList.toggle("darkmode-btn");
+            btnBg.classList.toggle("darkmode-btn-bg");
+        }
+       
+        
+    </script>
+</body>
+</html>
